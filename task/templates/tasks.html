@@ -7,18 +7,18 @@
             <h1 class="text-center display-3">Tasks </h1>
             <ul class="list-group">
                 {%for task in tasks%}
-            <li class="list-group-item mt-2">
+            <li class="list-group-item mt-2 card-container mt-5" style="max-width: 100%!important;">
                 <a class="text-decoration-none text-dark" href="{%url 'task_detail' task.id %}">
                     <header class="d-flex justify-content-between">
                         {%if task.important%}
-                        <h3 class="fw-bold text-success">🔴 {{task.title}}</h3>
+                        <h4 class="fw-bold text-success" style="word-break: break-all;">🔴 {{task.title}}</h3>
                         {%else%}
-                        <h4 class="fw-bold">{{task.title}}</h1>
+                        <h4 class="fw-bold" style="word-wrap: break-word">{{task.title}}</h1>
                         {%endif%}
                         <p>Author: {{task.user.username}} <!-- El campo "username" pertenece al modelo "User" y está relacionado con el modelo "Task" a través de la llave foránea "user". Utilizamos un doble punto para acceder a este campo a través de la relación. -->
                     </header>
 
-                        <p>{{task.description}}</p>
+                        <p class="card-body" style="white-space: pre-line; word-wrap: break-word;">{{task.description}}</p>
                         {%if task.datecompleted%}
                         <p>{{task.datecompleted }}</p>
                         {%else%}
